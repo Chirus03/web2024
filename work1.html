@@ -1,1 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>แบบทดสอบความรู้รอบตัว ม.1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container-fluid {
+      background-color: #1d3c6d;
+      padding: 40px 20px;
+      color: white;
+      text-align: center;
+      border-bottom: 2px solid #1a2e4e;
+      border-radius: 0 0 30px 30px;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 0;
+    }
+    .quiz-container {
+      margin-top: 50px;
+      padding: 20px;
+    }
+    .quiz-header {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .question-card {
+      background-color: #ffffff;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      max-width: 600px;
+      margin: auto;
+    }
+    .question-card:hover {
+      transform: translateY(-10px);
+    }
+    .form-check {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+    .btn {
+      border-radius: 30px;
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #1d3c6d;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #155184;
+    }
+    .check-btn {
+      background-color: #299833; 
+      color: white;
+    }
+    #btnCheckAnswer:hover{
+        background-color: #00931d;
+    }
+    .check-btn:hover {
+      background-color: #ffcd00;
+    }
+    .start-btn {
+      background-color: #3f6cb4;
+      color: white;
+    }
+    .start-btn:hover {
+      background-color: #336f99;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .result-box {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-top: 50px;
+    }
+    .correct {
+      color: #28a745;
+      font-weight: bold;
+    }
+    .incorrect {
+      color: #dc3545;
+      font-weight: bold;
+    }
+    .score {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .solution-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+    .solution-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+    }
+    .solution-table th, .solution-table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    .solution-table th {
+      background-color: #007bff;
+      color: white;
+    }
+    .correct-answer {
+      background-color: #28a745;
+      color: white;
+    }
+    .incorrect-answer {
+      background-color: #dc3545;
+      color: white;
+    }
+    #timeDisplay {
+      font-size: 1.5rem;
+      color: rgb(255, 0, 0);
+      font-weight: bold;
+      position: fixed;
+      top: 10px;
+      z-index: 1000;
+      border-radius: 10%;
+    }
+    .quiz-box {
+      margin-top: 50px;
+    }
+    .quiz-container {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid p-5 text-white text-center">
+  <h1>แบบทดสอบความรู้รอบตัว ม.1</h1>
+  <p>ทดสอบความรู้ของคุณในหลายๆ ด้าน!</p>
+</div>
+  
+<div class="container quiz-container">
+  <div class="row justify-content-center" id="startBox">
+    <button class="btn btn-lg start-btn" id="btnStart">เริ่มทำแบบทดสอบ</button>
+  </div>
+  <div class="row quiz-box" id="quizBox">
+    <div id="quizListBox"></div>
+    <div id="timeDisplay"></div> <!-- Timer display here -->
+    <div class="button-container">
+      <button class="btn btn-lg check-btn" id="btnCheckAnswer">ส่งคำตอบ</button>
+    </div>
+  </div>
+  <div class="row result-box" id="resultBox">
+    <div id="resultMessage"></div>
+    <div class="button-container">
+      <button class="btn btn-lg check-btn" id="btnRetry">เริ่มใหม่</button>
+      <button class="btn btn-lg check-btn" id="btnBack">ย้อนกลับ</button>
+      <button class="btn btn-lg check-btn" id="btnSolution">ดูเฉลย</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function(){
+    // Hide quiz section initially
+    $("#quizBox").hide();
+    $("#resultBox").hide();
+    
+    // Start quiz when 'เริ่มทำแบบทดสอบ' button is clicked
+    $("#btnStart").click(function(){
+      $("#startBox").hide();
+      $("#quizBox").show();
+      displayQuizList();
+      startTimer(30); // Start 30-minute timer
+    });
+    
+    // Check answers when 'ตรวจคำตอบ' button is clicked
+    $("#btnCheckAnswer").click(function(){
+      stopTimer();
+      checkAnswers();
+    });
+    
+    // Retry quiz when 'เริ่มใหม่' button is clicked
+    $("#btnRetry").click(function(){
+      location.reload(); // reload the page to start fresh
+    });
+    
+    // Back to quiz when 'ย้อนกลับ' button is clicked
+    $("#btnBack").click(function(){
+      $("#resultBox").hide();
+      $("#quizBox").show();
+    });
+    
+    // Show solution when 'ดูเฉลย' button is clicked
+    $("#btnSolution").click(function(){
+      showSolution();
+    });
+  });
+
+  // Timer logic
+  var timerInterval;
+  var timeRemaining;
+  var startTime;
+
+  function startTimer(minutes) {
+    timeRemaining = minutes * 60; // convert minutes to seconds
+    startTime = Date.now(); // Store start time
+    timerInterval = setInterval(function() {
+      var minutesLeft = Math.floor(timeRemaining / 60);
+      var secondsLeft = timeRemaining % 60;
+      if (secondsLeft < 10) secondsLeft = '0' + secondsLeft; // Add leading zero if needed
+      $('#timeDisplay').text("เวลาที่เหลือ: " + minutesLeft + ":" + secondsLeft); // Display time on UI
+      timeRemaining--;
+      if (timeRemaining < 0) {
+        clearInterval(timerInterval);
+        checkAnswers(); // Automatically submit answers when time runs out
+      }
+    }, 1000);
+  }
+
+  function stopTimer() {
+    clearInterval(timerInterval);
+  }
+
+  // Create quiz list
+ // Create quiz list with numbering
+function displayQuizList() {
+  var quizlist = [
+    {title: "กรุงเทพฯ เป็นเมืองหลวงของประเทศอะไร?", options: ["ไทย", "ญี่ปุ่น", "สิงคโปร์", "เกาหลี"], answer: 0},
+    {title: "คำว่า 'น้ำ' ภาษาอังกฤษคืออะไร?", options: ["Water", "Air", "Earth", "Fire"], answer: 0},
+    {title: "จำนวนดาวในท้องฟ้าสามารถนับได้หรือไม่?", options: ["ไม่ได้", "ได้", "ขึ้นอยู่กับเวลา", "ขึ้นอยู่กับสภาพอากาศ"], answer: 0},
+    {title: "ทวีปใดที่มีจำนวนประเทศมากที่สุด?", options: ["แอฟริกา", "เอเชีย", "ยุโรป", "อเมริกา"], answer: 0},
+    {title: "น้ำหนักของโลกมีค่าเท่าใด?", options: ["5.97 x 10^24 kg", "6.4 x 10^24 kg", "7.4 x 10^24 kg", "3.2 x 10^24 kg"], answer: 0},
+    {title: "เขื่อนที่ใหญ่ที่สุดในโลกตั้งอยู่ที่ไหน?", options: ["จีน", "ไทย", "อเมริกา", "รัสเซีย"], answer: 0},
+    {title: "ผู้ก่อตั้ง Microsoft คือใคร?", options: ["บิล เกตส์", "สตีฟ จ็อบส์", "มาร์ค ซักเคอร์เบิร์ก", "เอลอน มัสก์"], answer: 0},
+    {title: "ม้าตัวใดเป็นสายพันธุ์ที่เร็วที่สุด?", options: ["เพอร์เชอรีส", "เฮนซี่", "อาหรับ", "เทอร์นีน"], answer: 0},
+    {title: "การจัดการอาหารที่เหมาะสมกับสุขภาพคืออะไร?", options: ["การทานอาหารที่มีประโยชน์", "การทานอาหารรสเค็ม", "การทานแต่อาหารฟาสต์ฟู้ด", "การทานอาหารไขมันสูง"], answer: 0},
+    {title: "เพลง 'Shape of You' ของใคร?", options: ["เอด ชีแรน", "ลิซ่า", "อารีอาน่า กรานเด", "เทย์เลอร์ สวิฟต์"], answer: 0},
+    {title: "ดวงจันทร์มีแสงสว่างได้อย่างไร?", options: ["สะท้อนแสงจากดวงอาทิตย์", "ส่องแสงเอง", "มาจากดาวเคราะห์อื่น", "ไม่มีแสงสว่าง"], answer: 0},
+    {title: "ประเทศใดมีทะเลทรายซาฮาราที่ใหญ่ที่สุด?", options: ["แอฟริกา", "อเมริกา", "ยุโรป", "เอเชีย"], answer: 0},
+    {title: "ต้นไม้ที่สูงที่สุดในโลกคือ?", options: ["ต้นไฮยาน่า", "ต้นเซียนคูญ", "ต้นต้นไซเปรส", "ต้นคาโลไฟ์"], answer: 0},
+    {title: "การแบ่งเขตเวลาในโลกใช้หลักการใด?", options: ["เทียบกับเวลาท้องถิ่น", "เวลาผ่านไปตามประเทศ", "ระบบเวลามาตรฐาน"], answer: 0},
+    {title: "ไฟฟ้ามีหน่วยวัดอะไร?", options: ["แอมป์", "วัตต์", "โวลต์", "โอห์ม"], answer: 0},
+    {title: "ทวีปใดที่มีจำนวนประเทศน้อยที่สุด?", options: ["ออสเตรเลีย", "แอนตาร์กติกา", "ยุโรป", "อเมริกาเหนือ"], answer: 1},
+    {title: "สัตว์ชนิดใดที่สามารถบินได้?", options: ["นก", "ค้างคาว", "แมลง", "ทุกข้อ"], answer: 3},
+    {title: "น้ำทะเลมีความเค็มประมาณกี่เปอร์เซ็นต์?", options: ["2%", "3.5%", "4%", "1.5%"], answer: 1},
+    {title: "ใครคือผู้คิดค้นโทรศัพท์?", options: ["อเล็กซานเดอร์ เกรแฮม เบลล์", "โธมัส เอดิสัน", "วิลเลียม ลี", "บิล เกตส์"], answer: 0},
+    {title: "ประเทศใดที่มีความยาวชายฝั่งมากที่สุด?", options: ["แคนาดา", "ออสเตรเลีย", "รัสเซีย", "บราซิล"], answer: 0},
+    {title: "กีฬาชนิดใดที่เล่นด้วยลูกบอลและมีตาข่าย?", options: ["บาสเกตบอล", "ฟุตบอล", "วอลเลย์บอล", "เทนนิส"], answer: 2}
+  ];
+
+  var quizHTML = "";
+  for (var i = 0; i < quizlist.length; i++) {
+    quizHTML += `
+      <div class="question-card">
+        <p class="quiz-header">ข้อที่ ${i + 1}: ${quizlist[i].title}</p>
+        <div class="form-check">
+          <input type="radio" name="question${i}" value="0" class="form-check-input">
+          <label class="form-check-label">${quizlist[i].options[0]}</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" name="question${i}" value="1" class="form-check-input">
+          <label class="form-check-label">${quizlist[i].options[1]}</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" name="question${i}" value="2" class="form-check-input">
+          <label class="form-check-label">${quizlist[i].options[2]}</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" name="question${i}" value="3" class="form-check-input">
+          <label class="form-check-label">${quizlist[i].options[3]}</label>
+        </div>
+      </div>
+    `;
+  }
+  $("#quizListBox").html(quizHTML);
+}
+
+
+  // Check answers function
+  function checkAnswers() {
+    var quizlist = [
+      {title: "กรุงเทพฯ เป็นเมืองหลวงของประเทศอะไร?", options: ["ไทย", "ญี่ปุ่น", "สิงคโปร์", "เกาหลี"], answer: 0},
+      {title: "คำว่า 'น้ำ' ภาษาอังกฤษคืออะไร?", options: ["Water", "Air", "Earth", "Fire"], answer: 0},
+      {title: "จำนวนดาวในท้องฟ้าสามารถนับได้หรือไม่?", options: ["ไม่ได้", "ได้", "ขึ้นอยู่กับเวลา", "ขึ้นอยู่กับสภาพอากาศ"], answer: 0},
+      {title: "ทวีปใดที่มีจำนวนประเทศมากที่สุด?", options: ["แอฟริกา", "เอเชีย", "ยุโรป", "อเมริกา"], answer: 0},
+      {title: "น้ำหนักของโลกมีค่าเท่าใด?", options: ["5.97 x 10^24 kg", "6.4 x 10^24 kg", "7.4 x 10^24 kg", "3.2 x 10^24 kg"], answer: 0},
+      {title: "เขื่อนที่ใหญ่ที่สุดในโลกตั้งอยู่ที่ไหน?", options: ["จีน", "ไทย", "อเมริกา", "รัสเซีย"], answer: 0},
+      {title: "ผู้ก่อตั้ง Microsoft คือใคร?", options: ["บิล เกตส์", "สตีฟ จ็อบส์", "มาร์ค ซักเคอร์เบิร์ก", "เอลอน มัสก์"], answer: 0},
+      {title: "ม้าตัวใดเป็นสายพันธุ์ที่เร็วที่สุด?", options: ["เพอร์เชอรีส", "เฮนซี่", "อาหรับ", "เทอร์นีน"], answer: 0},
+      {title: "การจัดการอาหารที่เหมาะสมกับสุขภาพคืออะไร?", options: ["การทานอาหารที่มีประโยชน์", "การทานอาหารรสเค็ม", "การทานแต่อาหารฟาสต์ฟู้ด", "การทานอาหารไขมันสูง"], answer: 0},
+      {title: "เพลง 'Shape of You' ของใคร?", options: ["เอด ชีแรน", "ลิซ่า", "อารีอาน่า กรานเด", "เทย์เลอร์ สวิฟต์"], answer: 0},
+      {title: "ดวงจันทร์มีแสงสว่างได้อย่างไร?", options: ["สะท้อนแสงจากดวงอาทิตย์", "ส่องแสงเอง", "มาจากดาวเคราะห์อื่น", "ไม่มีแสงสว่าง"], answer: 0},
+      {title: "ประเทศใดมีทะเลทรายซาฮาราที่ใหญ่ที่สุด?", options: ["แอฟริกา", "อเมริกา", "ยุโรป", "เอเชีย"], answer: 0},
+      {title: "ต้นไม้ที่สูงที่สุดในโลกคือ?", options: ["ต้นไฮยาน่า", "ต้นเซียนคูญ", "ต้นต้นไซเปรส", "ต้นคาโลไฟ์"], answer: 0},
+      {title: "การแบ่งเขตเวลาในโลกใช้หลักการใด?", options: ["เทียบกับเวลาท้องถิ่น", "เวลาผ่านไปตามประเทศ", "ระบบเวลามาตรฐาน"], answer: 0},
+      {title: "ไฟฟ้ามีหน่วยวัดอะไร?", options: ["แอมป์", "วัตต์", "โวลต์", "โอห์ม"], answer: 0},
+      {title: "ทวีปใดที่มีจำนวนประเทศน้อยที่สุด?", options: ["ออสเตรเลีย", "แอนตาร์กติกา", "ยุโรป", "อเมริกาเหนือ"], answer: 1},
+      {title: "สัตว์ชนิดใดที่สามารถบินได้?", options: ["นก", "ค้างคาว", "แมลง", "ทุกข้อ"], answer: 3},
+      {title: "น้ำทะเลมีความเค็มประมาณกี่เปอร์เซ็นต์?", options: ["2%", "3.5%", "4%", "1.5%"], answer: 1},
+      {title: "ใครคือผู้คิดค้นโทรศัพท์?", options: ["อเล็กซานเดอร์ เกรแฮม เบลล์", "โธมัส เอดิสัน", "วิลเลียม ลี", "บิล เกตส์"], answer: 0},
+      {title: "ประเทศใดที่มีความยาวชายฝั่งมากที่สุด?", options: ["แคนาดา", "ออสเตรเลีย", "รัสเซีย", "บราซิล"], answer: 0},
+      {title: "กีฬาชนิดใดที่เล่นด้วยลูกบอลและมีตาข่าย?", options: ["บาสเกตบอล", "ฟุตบอล", "วอลเลย์บอล", "เทนนิส"], answer: 2}
+    ];
+
+    var score = 0;
+
+    // เช็คคำตอบ
+    for (var i = 0; i < quizlist.length; i++) {
+      var selectedAnswer = $("input[name='question" + i + "']:checked").val();
+      if (selectedAnswer != undefined && parseInt(selectedAnswer) === quizlist[i].answer) {
+        score++;
+      }
+    }
+
+    // แสดงผลคะแนน
+    $("#resultMessage").html(`
+      <p class="score">คุณได้คะแนน: ${score} / 21</p>
+    `);
+
+    // ซ่อนกล่องข้อสอบ และแสดงกล่องผลลัพธ์
+    $("#quizBox").hide();
+    $("#resultBox").show();
+  }
+
+  function showSolution() {
+  var quizlist = [
+    {title: "กรุงเทพฯ เป็นเมืองหลวงของประเทศอะไร?", options: ["ไทย", "ญี่ปุ่น", "สิงคโปร์", "เกาหลี"], answer: 0},
+    {title: "คำว่า 'น้ำ' ภาษาอังกฤษคืออะไร?", options: ["Water", "Air", "Earth", "Fire"], answer: 0},
+    {title: "จำนวนดาวในท้องฟ้าสามารถนับได้หรือไม่?", options: ["ไม่ได้", "ได้", "ขึ้นอยู่กับเวลา", "ขึ้นอยู่กับสภาพอากาศ"], answer: 0},
+    {title: "ทวีปใดที่มีจำนวนประเทศมากที่สุด?", options: ["แอฟริกา", "เอเชีย", "ยุโรป", "อเมริกา"], answer: 0},
+    {title: "น้ำหนักของโลกมีค่าเท่าใด?", options: ["5.97 x 10^24 kg", "6.4 x 10^24 kg", "7.4 x 10^24 kg", "3.2 x 10^24 kg"], answer: 0},
+    {title: "เขื่อนที่ใหญ่ที่สุดในโลกตั้งอยู่ที่ไหน?", options: ["จีน", "ไทย", "อเมริกา", "รัสเซีย"], answer: 0},
+    {title: "ผู้ก่อตั้ง Microsoft คือใคร?", options: ["บิล เกตส์", "สตีฟ จ็อบส์", "มาร์ค ซักเคอร์เบิร์ก", "เอลอน มัสก์"], answer: 0},
+    {title: "ม้าตัวใดเป็นสายพันธุ์ที่เร็วที่สุด?", options: ["เพอร์เชอรีส", "เฮนซี่", "อาหรับ", "เทอร์นีน"], answer: 0},
+    {title: "การจัดการอาหารที่เหมาะสมกับสุขภาพคืออะไร?", options: ["การทานอาหารที่มีประโยชน์", "การทานอาหารรสเค็ม", "การทานแต่อาหารฟาสต์ฟู้ด", "การทานอาหารไขมันสูง"], answer: 0},
+    {title: "เพลง 'Shape of You' ของใคร?", options: ["เอด ชีแรน", "ลิซ่า", "อารีอาน่า กรานเด", "เทย์เลอร์ สวิฟต์"], answer: 0},
+    {title: "ดวงจันทร์มีแสงสว่างได้อย่างไร?", options: ["สะท้อนแสงจากดวงอาทิตย์", "ส่องแสงเอง", "มาจากดาวเคราะห์อื่น", "ไม่มีแสงสว่าง"], answer: 0},
+    {title: "ประเทศใดมีทะเลทรายซาฮาราที่ใหญ่ที่สุด?", options: ["แอฟริกา", "อเมริกา", "ยุโรป", "เอเชีย"], answer: 0},
+    {title: "ต้นไม้ที่สูงที่สุดในโลกคือ?", options: ["ต้นไฮยาน่า", "ต้นเซียนคูญ", "ต้นต้นไซเปรส", "ต้นคาโลไฟ์"], answer: 0},
+    {title: "การแบ่งเขตเวลาในโลกใช้หลักการใด?", options: ["เทียบกับเวลาท้องถิ่น", "เวลาผ่านไปตามประเทศ", "ระบบเวลามาตรฐาน"], answer: 0},
+    {title: "ไฟฟ้ามีหน่วยวัดอะไร?", options: ["แอมป์", "วัตต์", "โวลต์", "โอห์ม"], answer: 0},
+    {title: "ทวีปใดที่มีจำนวนประเทศน้อยที่สุด?", options: ["ออสเตรเลีย", "แอนตาร์กติกา", "ยุโรป", "อเมริกาเหนือ"], answer: 1},
+    {title: "สัตว์ชนิดใดที่สามารถบินได้?", options: ["นก", "ค้างคาว", "แมลง", "ทุกข้อ"], answer: 3},
+    {title: "น้ำทะเลมีความเค็มประมาณกี่เปอร์เซ็นต์?", options: ["2%", "3.5%", "4%", "1.5%"], answer: 1},
+    {title: "ใครคือผู้คิดค้นโทรศัพท์?", options: ["อเล็กซานเดอร์ เกรแฮม เบลล์", "โธมัส เอดิสัน", "วิลเลียม ลี", "บิล เกตส์"], answer: 0},
+    {title: "ประเทศใดที่มีความยาวชายฝั่งมากที่สุด?", options: ["แคนาดา", "ออสเตรเลีย", "รัสเซีย", "บราซิล"], answer: 0},
+    {title: "กีฬาชนิดใดที่เล่นด้วยลูกบอลและมีตาข่าย?", options: ["บาสเกตบอล", "ฟุตบอล", "วอลเลย์บอล", "เทนนิส"], answer: 2}
+  ];
+
+  var solutionHTML = "<div class='solution-title'>เฉลยข้อสอบ</div><table class='solution-table'>";
+  solutionHTML += "<tr><th>คำถาม</th><th>คำตอบที่เลือก</th><th>คำตอบที่ถูกต้อง</th></tr>";
+
+  for (var i = 0; i < quizlist.length; i++) {
+    var selectedAnswer = $("input[name='question" + i + "']:checked").val();
+    var selectedOption = selectedAnswer !== undefined ? quizlist[i].options[selectedAnswer] : "ยังไม่ได้เลือก";
+    var correctOption = quizlist[i].options[quizlist[i].answer];
+
+    solutionHTML += "<tr>";
+    solutionHTML += "<td>" + quizlist[i].title + "</td>";
+    solutionHTML += "<td class='" + (selectedAnswer == quizlist[i].answer ? "correct-answer" : "incorrect-answer") + "'>" + selectedOption + "</td>";
+    solutionHTML += "<td class='correct-answer'>" + correctOption + "</td>";
+    solutionHTML += "</tr>";
+  }
+
+  solutionHTML += "</table>";
+  $("#resultMessage").html(solutionHTML);
+}
+
+</script>
+
+</body>
+</html>
 
