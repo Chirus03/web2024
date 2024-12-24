@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <title>แบบทดสอบออนไลน์</title>
+<style>
+  /* General Body Styling */
+/* General Body Styling */
+body {
+    background-color: #e7f0f7; /* Light blue-gray background */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #dbe9f4, #f0f9fb); /* Soft gradient for the background */
+}
+
+/* Header Styling */
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #405e75; /* Muted navy blue */
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+}
+
+/* Subject Card Styling */
+.subject-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px;
+    width: 350px;
+    text-align: center;
+    background: linear-gradient(135deg, #a8c8d8, #c4d9e2); /* Very soft gradient with cool tones */
+    color: #405e75; /* Muted navy blue for contrast */
+    border: 1px solid #a2c2d3; /* Soft border to match the card's gradient */
+}
+
+.subject-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Subtle hover effect */
+}
+
+/* Question Box Styling */
+.question-box {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 40px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    background: #f6f9fc; /* Softest blue-gray for a calming feel */
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #6fa3f9; /* Soft pastel blue */
+    color: #ffffff;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #5a92db; /* Slightly darker blue on hover */
+    transform: scale(1.05);
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    color: #6fa3f9;
+    border: 2px solid #6fa3f9;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: #6fa3f9;
+    color: white;
+    border-color: #6fa3f9;
+}
+
+/* Additional Styling for Text */
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+h1 {
+    color: #405e75; /* Muted navy for headings */
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #75a3c5; /* Soft sky blue for subheadings */
+}
+
+h3 {
+    color: #6fa3f9; /* Soft pastel blue for section titles */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .subject-card {
+        width: 100%;
+        padding: 20px;
+    }
+    .header {
+        font-size: 2.5rem;
+    }
+}
+
+
+
+/* Styling for the Answer Box */
+.answer-box {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(135deg, #d1e4f7, #e2f4fc); /* Light gradient background */
+}
+
+/* Hover effect for the answer box */
+.answer-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* Soft shadow on hover */
+}
+
+/* Answer header styling */
+.answer-box h3 {
+    font-size: 1.5rem;
+    color: #5a92db; /* Soft blue for the heading */
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Styling for the answer content */
+.answer-content {
+    background-color: #f6f9fc;
+    border-radius: 12px;
+    padding: 20px;
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Answer button styling */
+.btn-answer {
+    background-color: #6fa3f9;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 15px;
+}
+
+.btn-answer:hover {
+    background-color: #5a92db; /* Slightly darker blue */
+    transform: scale(1.05);
+}
+
+/* Button to collapse or hide answer */
+.btn-collapse {
+    background-color: transparent;
+    color: #5a92db;
+    padding: 12px 24px;
+    border: 2px solid #5a92db;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-collapse:hover {
+    background-color: #5a92db;
+    color: white;
+}
+
+/* Styling for answer text */
+.answer-text {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+
+</style>
+  </head>
+  <body>
+    <div id="myapp" class="container py-4"></div>
+
+    <script type="text/babel">
+      class App extends React.Component {
+        state = {
+          subjects: [],
+          selectedSubject: null,
+          currentQuestion: 0,
+          showAnswer: false,
+          userAnswers: [],
+          questions: [],
+          score: 0,
+        };
+
+        async loadSubjects() {
+          try {
+            const response = await fetch('quiz4.json');
+            const data = await response.json();
+            this.setState({ subjects: Object.keys(data) });
+          } catch (error) {
+            console.error("Error loading subjects:", error);
+          }
+        }
+
+        selectSubject = async (subject) => {
+          try {
+            const response = await fetch('quiz4.json');
+            const data = await response.json();
+            const questions = data[subject]; 
+            this.setState({
+              selectedSubject: subject,
+              currentQuestion: 0,
+              showAnswer: false,
+              userAnswers: [],
+              questions: questions,
+              score: 0,
+            });
+          } catch (error) {
+            console.error("Error loading questions:", error);
+          }
+        };
+
+        handleAnswer = (optionIndex) => {
+          const { currentQuestion, userAnswers, questions } = this.state;
+          const updatedAnswers = [...userAnswers, optionIndex];
+
+          let updatedScore = this.state.score;
+          if (optionIndex === questions[currentQuestion].correctAnswer) {
+            updatedScore += 1;
+          }
+
+          this.setState({
+            userAnswers: updatedAnswers,
+            currentQuestion: currentQuestion + 1,
+            score: updatedScore,
+            showAnswer: false,
+          });
+        };
+
+        restartQuiz = () => {
+          this.setState({ selectedSubject: null, currentQuestion: 0, userAnswers: [], questions: [], score: 0 });
+        };
+
+        // แสดง/ซ่อนเฉลย
+        toggleAnswer = () => {
+          this.setState((prevState) => ({ showAnswer: !prevState.showAnswer }));
+        };
+
+        componentDidMount() {
+          this.loadSubjects(); // เรียกใช้เมื่อเริ่มต้น
+        }
+
+        render() {
+          const { subjects, selectedSubject, currentQuestion, showAnswer, userAnswers, questions, score } = this.state;
+
+          // หน้าเลือกวิชา
+          if (!selectedSubject) {
+            return (
+              <div>
+                <h1 className="header">เลือกวิชาเพื่อเริ่มทำแบบทดสอบ</h1>
+                <div className="row">
+                  {subjects.map((subject, index) => (
+                    <div className="col-md-4 mb-4" key={index}>
+                      <div className="subject-card">
+                        <h3>{subject}</h3>
+                        <button
+                          className="btn btn-primary"
+                          onClick={() => this.selectSubject(subject)}
+                        >
+                          เริ่มวิชา
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          }
+
+          // หน้าแสดงคำถาม
+          if (currentQuestion < questions.length) {
+            const current = questions[currentQuestion];
+            return (
+              <div className="text-center">
+                <div className="question-box">
+                  <h2>วิชา: {selectedSubject}</h2>
+                  <p>คำถาม {currentQuestion + 1}: {current.question}</p>
+                  {current.options.map((option, index) => (
+                    <button
+                      key={index}
+                      className="btn btn-outline-primary"
+                      onClick={() => this.handleAnswer(index)}
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            );
+          }
+
+          // หน้าแสดงผลคะแนนหลังทำข้อสอบเสร็จ
+          return (
+            <div className="text-center">
+              <div className="score-box">
+                <h2>ผลการทำแบบทดสอบ: {selectedSubject}</h2>
+                <p>คุณทำข้อสอบเสร็จแล้ว!</p>
+                <p>คะแนนของคุณ: {score} / {questions.length}</p>
+                <button className="btn btn-success" onClick={this.restartQuiz}>
+                  เริ่มทำใหม่
+                </button>
+                <button className="btn btn-warning" onClick={this.toggleAnswer}>
+                  {showAnswer ? "ซ่อนเฉลย" : "ดูเฉลย"}
+                </button>
+                {showAnswer && (
+                  <div className="mt-3">
+                    <h4>เฉลย</h4>
+                    <ul className="list-group">
+                      {questions.map((q, index) => (
+                        <li key={index} className="list-group-item">
+                          <strong>ข้อ {index + 1}:</strong> {q.question}<br />
+                          <strong>คำตอบที่ถูกต้อง:</strong> {q.options[q.correctAnswer]}<br />
+                          <strong>คำตอบของคุณ:</strong> {userAnswers[index] !== undefined ? q.options[userAnswers[index]] : "ยังไม่ได้ตอบ"}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        }
+      }
+
+      const container = document.getElementById("myapp");
+      const root = ReactDOM.createRoot(container);
+      root.render(<App />);
+    </script>
+  </body>
+</html>
