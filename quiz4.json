@@ -1,0 +1,578 @@
+{
+    "คณิตศาสตร์": [
+        {
+            "question": "ผลบวกของ 7 และ 3 คือเท่าไร?",
+            "options": [
+                "10",
+                "11",
+                "12",
+                "9"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "ผลลัพธ์ของ 15 หารด้วย 3 คือเท่าไร?",
+            "options": [
+                "5",
+                "4",
+                "6",
+                "7"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "ผลคูณของ 8 และ 6 คือเท่าไร?",
+            "options": [
+                "48",
+                "42",
+                "56",
+                "38"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "หาค่าของ 2x เมื่อ x = 4?",
+            "options": [
+                "8",
+                "6",
+                "10",
+                "12"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "ผลบวกของ 120 และ 85 คือเท่าไร?",
+            "options": [
+                "205",
+                "210",
+                "215",
+                "200"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "10 ยกกำลัง 2 มีค่าเท่าไร?",
+            "options": [
+                "100",
+                "10",
+                "20",
+                "50"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "หาค่าของ x ในสมการ 3x + 5 = 14",
+            "options": [
+                "3",
+                "4",
+                "2",
+                "5"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "หาค่าของ x ในสมการ 5x - 7 = 18",
+            "options": [
+                "4",
+                "5",
+                "3",
+                "6"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "สมการ 3y = 18 มีค่า y เท่าไร?",
+            "options": [
+                "5",
+                "4",
+                "3",
+                "6"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "ค่าของ 9 คูณ 7 คือเท่าไร?",
+            "options": [
+                "63",
+                "72",
+                "56",
+                "66"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "ผลบวกของ 19 และ 14 คือเท่าไร?",
+            "options": [
+                "33",
+                "34",
+                "32",
+                "35"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "หาค่าของ 15 - 8 คือเท่าไร?",
+            "options": [
+                "7",
+                "8",
+                "6",
+                "9"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "สมการ 2a + 10 = 30 มีค่า a เท่าไร?",
+            "options": [
+                "10",
+                "12",
+                "9",
+                "8"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "หาค่าของ 12 x 3 คือเท่าไร?",
+            "options": [
+                "36",
+                "40",
+                "42",
+                "32"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "หาค่าของ x ในสมการ x + 12 = 25",
+            "options": [
+                "13",
+                "12",
+                "14",
+                "15"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "ผลบวกของ 56 และ 44 คือเท่าไร?",
+            "options": [
+                "100",
+                "110",
+                "95",
+                "120"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "หาค่าของ 100 หารด้วย 4 คือเท่าไร?",
+            "options": [
+                "25",
+                "24",
+                "30",
+                "27"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "สมการ 4x = 32 มีค่า x เท่าไร?",
+            "options": [
+                "6",
+                "7",
+                "8",
+                "5"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "การคูณ 10 คูณ 10 มีผลลัพธ์เท่าไร?",
+            "options": [
+                "100",
+                "90",
+                "110",
+                "120"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "หาค่าของ 2 คูณ 3 คูณ 4 คือเท่าไร?",
+            "options": [
+                "24",
+                "20",
+                "18",
+                "22"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "ผลคูณของ 6 และ 9 คือเท่าไร?",
+            "options": [
+                "54",
+                "56",
+                "62",
+                "64"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "หาค่าของ 18 หารด้วย 3 คือเท่าไร?",
+            "options": [
+                "6",
+                "5",
+                "7",
+                "8"
+            ],
+            "correctAnswer": 0
+        }
+    ],
+    "วิทยาศาสตร์": [
+        {
+            "question": "สัญลักษณ์ทางเคมีของน้ำคืออะไร?",
+            "options": [
+                "O2",
+                "H2O",
+                "CO2",
+                "H2"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "จุดเดือดของน้ำคือเท่าไร?",
+            "options": [
+                "100°C",
+                "120°C",
+                "90°C",
+                "80°C"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "ดาวเคราะห์ใดที่รู้จักกันในชื่อดาวเคราะห์สีแดง?",
+            "options": [
+                "โลก",
+                "ดาวอังคาร",
+                "ดาวพฤหัส",
+                "ดาวเสาร์"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "อวัยวะใดในร่างกายมนุษย์ที่ทำหน้าที่สูบฉีดเลือด?",
+            "options": [
+                "สมอง",
+                "ตับ",
+                "หัวใจ",
+                "ปอด"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "แก๊สหลักในชั้นบรรยากาศของโลกคืออะไร?",
+            "options": [
+                "ออกซิเจน",
+                "คาร์บอนไดออกไซด์",
+                "ไนโตรเจน",
+                "ไฮโดรเจน"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "กระบวนการที่พืชใช้ในการผลิตอาหารคืออะไร?",
+            "options": [
+                "การหายใจ",
+                "การย่อยอาหาร",
+                "การสังเคราะห์แสง",
+                "การหมัก"
+            ],
+            "correctAnswer": 2
+        },
+        {
+            "question": "สิ่งใดที่ไม่ใช่สถานะของสสาร?",
+            "options": [
+                "ของแข็ง",
+                "ของเหลว",
+                "ก๊าซ",
+                "แสง"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "question": "สูตรเคมีของมีเธนคืออะไร?",
+            "options": [
+                "CO2",
+                "CH4",
+                "O2",
+                "H2O"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "อวัยวะใดในร่างกายมนุษย์ที่ใหญ่ที่สุด?",
+            "options": [
+                "สมอง",
+                "ผิวหนัง",
+                "ตับ",
+                "หัวใจ"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "แรงที่ดึงดูดวัตถุสู่โลกคืออะไร?",
+            "options": [
+                "แรงดึงดูดโลก",
+                "แม่เหล็ก",
+                "แรงเสียดทาน",
+                "ความตึง"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "ธาตุใดที่จำเป็นในการสร้างไฟ?",
+            "options": [
+                "ออกซิเจน",
+                "ไฮโดรเจน",
+                "คาร์บอน",
+                "ไนโตรเจน"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "สูตรเคมีของคาร์บอนไดออกไซด์คืออะไร?",
+            "options": [
+                "CO2",
+                "H2O",
+                "CO",
+                "O2"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "มนุษย์มีโครโมโซมจำนวนเท่าไร?",
+            "options": [
+                "23",
+                "46",
+                "64",
+                "30"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "ดาวเคราะห์ดวงใดที่ใกล้ดวงอาทิตย์ที่สุด?",
+            "options": [
+                "โลก",
+                "ดาวพุธ",
+                "ดาวศุกร์",
+                "ดาวอังคาร"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "สูตรเคมีของเกลือแกง (เกลือโซเดียมคลอไรด์) คืออะไร?",
+            "options": [
+                "NaCl",
+                "KCl",
+                "NaOH",
+                "H2O"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "สิ่งใดที่ไม่ใช่ส่วนหนึ่งของเซลล์?",
+            "options": [
+                "นิวเคลียส",
+                "ไมโตคอนเดรีย",
+                "ไรโบโซม",
+                "ม้าม"
+            ],
+            "correctAnswer": 3
+        },
+        {
+            "question": "ชื่อของแรงที่ต้านทานการเคลื่อนที่ระหว่างพื้นผิวสองชนิดคืออะไร?",
+            "options": [
+                "แรงเสียดทาน",
+                "แรงดึงดูดโลก",
+                "แม่เหล็ก",
+                "ความเฉื่อย"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "ธาตุใดที่มีปริมาณมากที่สุดในเปลือกโลก?",
+            "options": [
+                "ออกซิเจน",
+                "เหล็ก",
+                "ซิลิคอน",
+                "อะลูมิเนียม"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "DNA ย่อมาจากอะไร?",
+            "options": [
+                "กรดดีออกซีไรโบนิวคลีอิก",
+                "กรดไดออกไซด์",
+                "กรดไรโบนิวคลีอิก",
+                "ไฮโดรเจน"
+            ],
+            "correctAnswer": 0
+        }
+    ],
+    "ภาษาอังกฤษ": [
+        {
+            "question": "What is the plural of 'child'?",
+            "options": [
+                "Children",
+                "Childs",
+                "Childer",
+                "Kids"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Which of the following is a synonym for 'happy'?",
+            "options": [
+                "Sad",
+                "Joyful",
+                "Angry",
+                "Tired"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "What is the past tense of 'go'?",
+            "options": [
+                "Gone",
+                "Went",
+                "Go",
+                "Going"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Which of the following is correct?",
+            "options": [
+                "He don't know",
+                "He doesn't know",
+                "He don't knows",
+                "He doesn't knew"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "What is the antonym of 'big'?",
+            "options": [
+                "Small",
+                "Tall",
+                "Large",
+                "Huge"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "What is the opposite of 'fast'?",
+            "options": [
+                "Slow",
+                "Quick",
+                "Speed",
+                "Rapid"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "What is the plural of 'mouse'?",
+            "options": [
+                "Mouses",
+                "Mice",
+                "Mices",
+                "Miceses"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "What is the superlative form of 'good'?",
+            "options": [
+                "Best",
+                "Better",
+                "Goodest",
+                "Betterer"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Which of the following sentences is correct?",
+            "options": [
+                "She can sings",
+                "She can sing",
+                "She can sang",
+                "She can sung"
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "What is the plural of 'box'?",
+            "options": [
+                "Boxes",
+                "Boxs",
+                "Boxies",
+                "Boxsies"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Which of these is a question word?",
+            "options": [
+                "What",
+                "The",
+                "A",
+                "An"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "What is the past tense of 'eat'?",
+            "options": [
+                "Ate",
+                "Eaten",
+                "Eat",
+                "Eating"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "What is the plural of 'fox'?",
+            "options": [
+                "Foxes",
+                "Foxes",
+                "Faxes",
+                "Fexes"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Which of these words is a preposition?",
+            "options": [
+                "On",
+                "Books",
+                "Run",
+                "Big"
+            ],
+            "correctAnswer": 0
+        },
+        {
+            "question": "Which of these sentences is in future tense?",
+            "options": [
+                "She went to school.",
+                "She will go to school.",
+                "She is going to school.",
+                "She goes to school."
+            ],
+            "correctAnswer": 1
+        },
+        {
+            "question": "Which of these is a compound word?",
+            "options": [
+                "Notebook",
+                "Pencil",
+                "Pen",
+                "Table"
+            ],
+            "correctAnswer": 0
+        }
+    ]
+}
