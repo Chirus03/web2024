@@ -45,21 +45,7 @@
             margin: 10px 20px;
         }
 
-        /* กล่องเนื้อหางาน */
-        h2 {
-            color: #333;
-            text-decoration: underline;
-            font-size: 24px;
-            margin-top: 40px;
-        }
-
-        p {
-            font-size: 18px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* การเพิ่มการจัดการขอบและมุม */
+        /* การตกแต่งกล่องเนื้อหางาน */
         .content-box {
             background-color: white;
             padding: 20px;
@@ -69,6 +55,28 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        /* การจัดเรียงงานในรูปแบบ Grid */
+        .work-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .work-item {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .work-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* เพิ่มการตกแต่ง Footer */
         .footer {
             text-align: center;
             color: #888;
@@ -78,9 +86,8 @@
 
         /* เพิ่มการจัดการสำหรับการตั้งค่ามือถือ */
         @media screen and (max-width: 768px) {
-            ul li {
-                display: block;
-                margin: 15px 0;
+            .work-list {
+                grid-template-columns: 1fr; /* ใช้คอลัมน์เดียวบนมือถือ */
             }
             .content-box {
                 width: 95%;
@@ -94,27 +101,47 @@
 
     <div class="content-box">
         <ul>
-            <li><a href="work1.html">งานที่ 1</a></li>
-            <li><a href="work2.html">งานที่ 2</a></li>
-            <li><a href="work3.html">งานที่ 3</a></li>
-            <li><a href="work4.html">งานที่ 4</a></li>
-            <li><a href="work.5.html">งานที่ 5</a></li>
-            <li><a href="ASS6.html">งานที่ 6</a></li>
+            <li><a href="#work1">งานที่ 1</a></li>
+            <li><a href="#work2">งานที่ 2</a></li>
+            <li><a href="#work3">งานที่ 3</a></li>
+            <li><a href="#work4">งานที่ 4</a></li>
+            <li><a href="#work5">งานที่ 5</a></li>
+            <li><a href="#work6">งานที่ 6</a></li>
         </ul>
     </div>
 
     <div class="content-box">
-        <h2 id="work1">งานที่ 1</h2>
-        <p>รายละเอียดงานที่ 1: งานนี้จะทำเกี่ยวกับการพัฒนาแอปพลิเคชันบนมือถือและเว็บไซต์</p>
+        <div class="work-list">
+            <div class="work-item" id="work1">
+                <h2>งานที่ 1</h2>
+                <p>รายละเอียดงานที่ 1: งานนี้จะทำเกี่ยวกับการพัฒนาแอปพลิเคชันบนมือถือและเว็บไซต์</p>
+            </div>
 
-        <h2 id="work2">งานที่ 2</h2>
-        <p>รายละเอียดงานที่ 2: งานนี้จะมุ่งเน้นการใช้เครื่องมือและเทคนิคในการพัฒนาแอปพลิเคชันที่มีประสิทธิภาพ</p>
+            <div class="work-item" id="work2">
+                <h2>งานที่ 2</h2>
+                <p>รายละเอียดงานที่ 2: งานนี้จะมุ่งเน้นการใช้เครื่องมือและเทคนิคในการพัฒนาแอปพลิเคชันที่มีประสิทธิภาพ</p>
+            </div>
 
-        <h2 id="work3">งานที่ 3</h2>
-        <p>รายละเอียดงานที่ 3: งานนี้จะเป็นการประยุกต์ใช้งานจริงในโปรเจกต์พัฒนาเว็บไซต์และแอปมือถือ</p>
-    </div>
-     <h2 id="work4">งานที่ 4</h2>
-        <p>รายละเอียดงานที่ 4: ดูวิธีการเขียนภาษา A-Frame </p>
+            <div class="work-item" id="work3">
+                <h2>งานที่ 3</h2>
+                <p>รายละเอียดงานที่ 3: งานนี้จะเป็นการประยุกต์ใช้งานจริงในโปรเจกต์พัฒนาเว็บไซต์และแอปมือถือ</p>
+            </div>
+
+            <div class="work-item" id="work4">
+                <h2>งานที่ 4</h2>
+                <p>รายละเอียดงานที่ 4: ดูวิธีการเขียนภาษา A-Frame</p>
+            </div>
+
+            <div class="work-item" id="work5">
+                <h2>งานที่ 5</h2>
+                <p>รายละเอียดงานที่ 5: งานนี้จะเน้นการใช้งานของexpo</p>
+            </div>
+
+            <div class="work-item" id="work6">
+                <h2>งานที่ 6</h2>
+                <p>รายละเอียดงานที่ 6: งานนี้จะศึกษาการพัฒนาเว็บไซต์ด้วยเครื่องมือและเทคนิคต่างๆเกี่ยวกับfirebase</p>
+            </div>
+        </div>
     </div>
 
     <div class="footer">
@@ -123,5 +150,3 @@
 
 </body>
 </html>
-
-
